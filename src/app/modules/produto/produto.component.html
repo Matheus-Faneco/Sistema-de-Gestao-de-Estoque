@@ -1,0 +1,24 @@
+<p-card header="Lista de produtos" styleClass="m-2 text-indigo-800">
+  <div>
+    @for (p of produtos; track p){
+  <li> {{p.id}} {{ p.title }} {{ p.category }} {{ p.brand }}</li>
+    }
+  </div>
+</p-card>
+
+<div class="card flex justify-content-center">
+  <p-listbox
+    [options]="produtos"
+    [(ngModel)]="marcaSelecionada"
+    optionLabel="brand"
+  [style]="{ width: '15rem' }"
+  [virtualScroll]="true"
+  [virtualScrollItemSize]="38"
+  [multiple]="false"
+  [metaKeySelection]="false"
+  scrollHeight="250px">
+  </p-listbox>
+</div>
+
+
+

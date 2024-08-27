@@ -1,0 +1,29 @@
+<p-card header="Adicionar marca de produto" styleClass="m-2 text-indigo-800">
+</p-card>
+
+
+<div class="flex flex-column custom-margin">
+  <label for="categoria">Nome</label>
+  <input
+    pInputText
+    id="categoria"
+    aria-describedby="nome-categoria"
+    [(ngModel)]="novaMarca.name"/>
+</div>
+
+<textarea
+  rows="5"
+  cols="30"
+  pInputTextarea
+  [(ngModel)]="novaMarca.description">
+</textarea>
+
+<div class="card flex justify-content-center">
+  <p-button label="Confirmar" (click)="addMarca()"/>
+</div>
+
+<div>
+  @for (m of marcas; track m){
+    <li> {{m.name}} {{ m.description }}</li>
+  }
+</div>

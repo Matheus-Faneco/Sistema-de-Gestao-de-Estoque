@@ -1,0 +1,21 @@
+<p-card header="Adicionar categoria de produto" styleClass="m-2 text-indigo-800"></p-card>
+
+<div class="flex flex-column custom-margin">
+  <label for="categoria">Nome</label>
+  <input
+    pInputText
+    id="categoria"
+    aria-describedby="nome-categoria"
+    [(ngModel)]="nomeCategoria"/>
+</div>
+
+<textarea
+  rows="5"
+  cols="30"
+  pInputTextarea
+  [(ngModel)]="descricao">
+</textarea>
+
+<div class="card flex justify-content-center">
+    <p-button label="Confirmar" />
+</div>
