@@ -8,10 +8,7 @@ import {Marca} from "../../models/marca";
   styleUrl: './marcas.component.css'
 })
 export class MarcasComponent implements OnInit {
-  nomeMarca: string;
-  descricaoMarca: string;
   marcas: Marca[] = [];
-  marcaSelecionada: Marca;
   novaMarca: Marca = new Marca();
 
   constructor(private api: ApiService) { }
