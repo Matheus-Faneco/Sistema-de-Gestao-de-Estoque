@@ -1,15 +1,15 @@
-<!--Cadastro de produtos-->
+<!--Cadastro de entradas-->
 
-<p-card header="Adicionar marca de produto" styleClass="m-2 text-indigo-800">
+<p-card header="Adicionar entrada de produto" styleClass="m-2 text-indigo-800">
   <div class="p-fluid p-formgrid p-grid">
     <div class="p-field p-col-12">
-      <label for="marca">Nome</label>
+      <label for="entrada">Quantidade</label>
       <input
         pInputText
-        id="marca"
-        aria-describedby="nome-marca"
-        [(ngModel)]="novaMarca.name"
-        class="p-inputtext p-component"
+        id="entrada"
+        aria-describedby="nome-entrada"
+        [(ngModel)]="novaEntrada.quantity"
+        class="p-inputnumber p-component"
       />
     </div>
     <div class="p-field p-col-12">
@@ -19,14 +19,14 @@
         rows="5"
         cols="30"
         pInputTextarea
-        [(ngModel)]="novaMarca.description"
+        [(ngModel)]="novaEntrada.description"
         class="p-inputtextarea p-component"
       ></textarea>
     </div>
     <div class="p-field p-col-12">
       <p-button
         label="Confirmar"
-        (click)="addMarca()"
+        (click)="addEntrada()"
         styleClass="p-button-sm"
       ></p-button>
     </div>
@@ -37,7 +37,7 @@
 
 <p-card header="Listagem de marcas" styleClass="m-2 text-indigo-800">
   <p-table
-    [value]="marcas"
+    [value]="entradas"
     [paginator]="true"
     [rows]="1"
     [tableStyle]="{ 'min-width': '5rem' }"
@@ -46,13 +46,17 @@
       <tr>
         <th style="width:5%">Marca</th>
         <th style="width:5%">Descrição</th>
+        <th style="width:5%">Fornecedor</th>
+        <th style="width:5%">Produto</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body">
-      @for (m of marcas; track m){
+      @for (entrada of entradas; track entrada){
         <tr>
-          <td>{{ m.name }}</td>
-          <td>{{ m.description }}</td>
+          <td>{{ entrada.quantity }}</td>
+          <td>{{ entrada.description }}</td>
+          <td>{{ entrada.supplier }}</td>
+          <td>{{ entrada.product }}</td>
         </tr>
       }
     </ng-template>

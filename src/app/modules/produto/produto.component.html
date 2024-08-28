@@ -1,16 +1,16 @@
 <form (ngSubmit)="addProduto()">
   <mat-form-field appearance="fill">
-    <mat-label>Title</mat-label>
+    <mat-label>Título</mat-label>
     <input matInput [(ngModel)]="produtoSelecionado.title" name="title" required>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Description</mat-label>
+    <mat-label>Descrição</mat-label>
     <input matInput [(ngModel)]="produtoSelecionado.description" name="description" required>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Category</mat-label>
+    <mat-label>Categoria</mat-label>
     <mat-select [(ngModel)]="produtoSelecionado.category" name="category" required>
       <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
         {{ categoria.name }}
@@ -19,7 +19,7 @@
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Brand</mat-label>
+    <mat-label>Marca</mat-label>
     <mat-select [(ngModel)]="produtoSelecionado.brand" name="brand" required>
       <mat-option *ngFor="let marca of marcas" [value]="marca.id">
         {{ marca.name }}
@@ -28,32 +28,63 @@
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Serie Number</mat-label>
+    <mat-label>Número de série</mat-label>
     <input matInput [(ngModel)]="produtoSelecionado.serie_number" name="serie_number" required>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Cost Price</mat-label>
+    <mat-label>Preço de custo</mat-label>
     <input matInput [(ngModel)]="produtoSelecionado.cost_price" name="cost_price" required>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Selling Price</mat-label>
+    <mat-label>Preço de venda</mat-label>
     <input matInput [(ngModel)]="produtoSelecionado.selling_price" name="selling_price" required>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
-    <mat-label>Quantity</mat-label>
+    <mat-label>Quantidade</mat-label>
     <input matInput [(ngModel)]="produtoSelecionado.quantity" name="quantity" required>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit">Adicionar Produto</button>
+  <button mat-raised-button color="primary" type="submit" (click)="addProduto()">Adicionar Produto</button>
 </form>
 
-<div>
-  <ul>
-    <li *ngFor="let p of produtos">
-      {{ p.title }} - {{ p.description }}
-    </li>
-  </ul>
-</div>
+
+<!--Listagem-->
+
+<p-card header="Listagem de marcas" styleClass="m-2 text-indigo-800">
+  <p-table
+    [value]="produtos"
+    [paginator]="true"
+    [rows]="1"
+    [tableStyle]="{ 'min-width': '15rem' }"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width:5%">Marca</th>
+        <th style="width:5%">Categoria</th>
+        <th style="width:5%">Título</th>
+        <th style="width:5%">Descrição</th>
+        <th style="width:5%">Numero de série</th>
+        <th style="width:5%">Preço de custo (R$)</th>
+        <th style="width:5%">Preço de venda (R$)</th>
+        <th style="width:5%">Quantidade</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body">
+      @for (produto of produtos; track produto){
+        <tr>
+          <td>{{ produto.brand }}</td>
+          <td>{{ produto.category }}</td>
+          <td>{{ produto.title }}</td>
+          <td>{{ produto.description }}</td>
+          <td>{{ produto.serie_number }}</td>
+          <td>{{ produto.cost_price }}</td>
+          <td>{{ produto.selling_price }}</td>
+          <td>{{ produto.quantity }}</td>
+        </tr>
+      }
+    </ng-template>
+  </p-table>
+</p-card>

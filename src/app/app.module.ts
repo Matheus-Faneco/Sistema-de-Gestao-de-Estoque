@@ -30,6 +30,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import {MatOption, MatSelect} from "@angular/material/select";
+import {TableModule} from "primeng/table";
+import { FornecedorComponent } from './modules/fornecedor/fornecedor.component';
+import { EntradaComponent } from './modules/entrada/entrada.component';
+import { VendaComponent } from './modules/venda/venda.component';
 
 
 @NgModule({
@@ -41,33 +45,37 @@ import {MatOption, MatSelect} from "@angular/material/select";
     ToolbarComponent,
     CategoriaComponent,
     MarcasComponent,
+    FornecedorComponent,
+    EntradaComponent,
+    VendaComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CardModule,
-    ChartModule,
-    HttpClientModule,
-    ToolbarModule,
-    ButtonDirective,
-    Button,
-    ChipsModule,
-    TabMenuModule,
-    InputGroupModule,
-    InputGroupAddonModule,
-    FormsModule,
-    MultiSelectModule,
-    ListboxModule,
-    InputTextareaModule,
-    CommonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSelect,
-    MatOption,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        CardModule,
+        ChartModule,
+        HttpClientModule,
+        ToolbarModule,
+        ButtonDirective,
+        Button,
+        ChipsModule,
+        TabMenuModule,
+        InputGroupModule,
+        InputGroupAddonModule,
+        FormsModule,
+        MultiSelectModule,
+        ListboxModule,
+        InputTextareaModule,
+        CommonModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatSelect,
+        MatOption,
+        TableModule,
+    ],
   providers: [ApiService, provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
