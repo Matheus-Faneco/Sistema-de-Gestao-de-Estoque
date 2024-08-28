@@ -6,16 +6,17 @@
     pInputText
     id="categoria"
     aria-describedby="nome-categoria"
-    [(ngModel)]="nomeCategoria"/>
+    [(ngModel)]="novaCategoria.name"
+  />
 </div>
 
 <textarea
   rows="5"
   cols="30"
   pInputTextarea
-  [(ngModel)]="descricao">
-</textarea>
+  [(ngModel)]="novaCategoria.description"
+></textarea>
 
 <div class="card flex justify-content-center">
-    <p-button label="Confirmar" />
+  <p-button label="Confirmar" (click)="addCategoria()"></p-button>
 </div>

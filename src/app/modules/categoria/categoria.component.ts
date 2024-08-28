@@ -1,12 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Categoria } from '../../models/categorias';
+import { ApiService } from '../../service/api.service';
 
 @Component({
   selector: 'app-categoria',
   templateUrl: './categoria.component.html',
-  styleUrl: './categoria.component.css'
+  styleUrls: ['./categoria.component.css']
 })
-export class CategoriaComponent {
-  nomeCategoria: string;
-  descricao: string;
-  protected readonly AnimationTimeline = AnimationTimeline;
+export class CategoriaComponent implements OnInit {
+  categorias: Categoria[] = [];
+  novaCategoria: Categoria = new Categoria();
+
+  constructor(private api: ApiService) { }
+
+  ngOnInit() {
+    this.getCategoria();
+  }
+
+  getCategoria() {
+    this.api.getCategoria().subscribe(
+      (response: Categoria[]) => {
+        this.categorias = response;
+        console.log('Array categorias:', this.categorias);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  addCategoria() {
+    this.api.postCategoria(this.novaCategoria).subscribe(
+      (response: Categoria) => {
+        this.categorias.push(response);
+        console.log('Categoria adicionada com sucesso!');
+        this.novaCategoria = new Categoria();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }
