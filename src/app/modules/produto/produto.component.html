@@ -29,23 +29,31 @@
 
   <mat-form-field appearance="fill">
     <mat-label>Serie Number</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.serie_number" required>
+    <input matInput [(ngModel)]="produtoSelecionado.serie_number" name="serie_number" required>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Cost Price</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.cost_price" required>
+    <input matInput [(ngModel)]="produtoSelecionado.cost_price" name="cost_price" required>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Selling Price</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.selling_price" required>
+    <input matInput [(ngModel)]="produtoSelecionado.selling_price" name="selling_price" required>
   </mat-form-field>
 
   <mat-form-field appearance="fill">
     <mat-label>Quantity</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.quantity" required>
+    <input matInput [(ngModel)]="produtoSelecionado.quantity" name="quantity" required>
   </mat-form-field>
 
   <button mat-raised-button color="primary" type="submit">Adicionar Produto</button>
 </form>
+
+<div>
+  <ul>
+    <li *ngFor="let p of produtos">
+      {{ p.title }} - {{ p.description }}
+    </li>
+  </ul>
+</div>

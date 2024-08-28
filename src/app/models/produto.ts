@@ -4,7 +4,7 @@ export class Produto {
   description: string;
   category: string;
   brand: string;
-  serie_number: string;
+  serie_number: number;
   cost_price: number;
   selling_price: number;
   quantity: number;
