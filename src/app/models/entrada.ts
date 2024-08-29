@@ -4,6 +4,6 @@ export class Entrada {
   description:string;
   created_at: string;
   updated_at:string;
-  supplier: number;
-  product: number;
+  supplier_name: string;
+  product_title: string;
 }

@@ -34,6 +34,8 @@ import {TableModule} from "primeng/table";
 import { FornecedorComponent } from './modules/fornecedor/fornecedor.component';
 import { EntradaComponent } from './modules/entrada/entrada.component';
 import { VendaComponent } from './modules/venda/venda.component';
+import {DropdownModule} from "primeng/dropdown";
+import {PaginatorModule} from "primeng/paginator";
 
 
 @NgModule({
@@ -50,32 +52,34 @@ import { VendaComponent } from './modules/venda/venda.component';
     VendaComponent,
 
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        CardModule,
-        ChartModule,
-        HttpClientModule,
-        ToolbarModule,
-        ButtonDirective,
-        Button,
-        ChipsModule,
-        TabMenuModule,
-        InputGroupModule,
-        InputGroupAddonModule,
-        FormsModule,
-        MultiSelectModule,
-        ListboxModule,
-        InputTextareaModule,
-        CommonModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        MatSelect,
-        MatOption,
-        TableModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CardModule,
+    ChartModule,
+    HttpClientModule,
+    ToolbarModule,
+    ButtonDirective,
+    Button,
+    ChipsModule,
+    TabMenuModule,
+    InputGroupModule,
+    InputGroupAddonModule,
+    FormsModule,
+    MultiSelectModule,
+    ListboxModule,
+    InputTextareaModule,
+    CommonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelect,
+    MatOption,
+    TableModule,
+    DropdownModule,
+    PaginatorModule,
+  ],
   providers: [ApiService, provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })

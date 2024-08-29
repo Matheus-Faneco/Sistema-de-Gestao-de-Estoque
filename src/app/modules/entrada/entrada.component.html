@@ -4,10 +4,9 @@
   <div class="p-fluid p-formgrid p-grid">
     <div class="p-field p-col-12">
       <label for="entrada">Quantidade</label>
-      <input
-        pInputText
+      <p-inputNumber
         id="entrada"
-        aria-describedby="nome-entrada"
+        aria-describedby="quantidade"
         [(ngModel)]="novaEntrada.quantity"
         class="p-inputnumber p-component"
       />
@@ -24,6 +23,25 @@
       ></textarea>
     </div>
     <div class="p-field p-col-12">
+      <mat-form-field appearance="fill">
+        <mat-label>Fornecedor</mat-label>
+        <mat-select [(ngModel)]="novaEntrada.supplier_name" name="supplier_name" required>
+          <mat-option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.name">
+            {{ fornecedor.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Produto</mat-label>
+      <mat-select [(ngModel)]="novaEntrada.product_title" name="product_title" required>
+        <mat-option *ngFor="let produto of produtos" [value]="produto.title">
+          {{ produto.title }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="p-field p-col-12">
       <p-button
         label="Confirmar"
         (click)="addEntrada()"
@@ -35,7 +53,7 @@
 
 <!--Listagem-->
 
-<p-card header="Listagem de marcas" styleClass="m-2 text-indigo-800">
+<p-card header="Listagem de entradas de produtos" styleClass="m-2 text-indigo-800">
   <p-table
     [value]="entradas"
     [paginator]="true"
@@ -55,8 +73,8 @@
         <tr>
           <td>{{ entrada.quantity }}</td>
           <td>{{ entrada.description }}</td>
-          <td>{{ entrada.supplier }}</td>
-          <td>{{ entrada.product }}</td>
+          <td>{{ entrada.supplier_name }}</td>
+          <td>{{ entrada.product_title }}</td>
         </tr>
       }
     </ng-template>

@@ -1,1 +1,75 @@
-<p>venda works!</p>
+<!--Cadastro de vendas-->
+
+<p-card header="Adicionar entrada de produto" styleClass="m-2 text-indigo-800">
+  <div class="p-fluid p-formgrid p-grid">
+    <div class="p-field p-col-12">
+      <label for="entrada">Quantidade</label>
+      <p-inputNumber
+        id="entrada"
+        aria-describedby="nome-entrada"
+        [(ngModel)]="novaVenda.quantity"
+        class="p-inputnumber p-component"
+      />
+    </div>
+    <div class="p-field p-col-12">
+      <label for="descricao">Descrição</label>
+      <textarea
+        id="descricao"
+        rows="5"
+        cols="30"
+        pInputTextarea
+        [(ngModel)]="novaVenda.description"
+        class="p-inputtextarea p-component"
+      ></textarea>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Marca</mat-label>
+        <mat-select [(ngModel)]="novaVenda.product" name="venda-produto" required>
+          <mat-option *ngFor="let venda of vendas" [value]="venda.product">
+            {{ venda.product }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+    <div class="p-field p-col-12">
+      <p-button
+        label="Confirmar"
+        (click)="addVenda()"
+        styleClass="p-button-sm"
+      ></p-button>
+    </div>
+  </div>
+</p-card>
+
+<!--Listagem-->
+
+<p-card header="Listagem de venda de produto" styleClass="m-2 text-indigo-800">
+  <p-table
+    [value]="vendas"
+    [paginator]="true"
+    [rows]="1"
+    [tableStyle]="{ 'min-width': '5rem' }"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width:5%">Marca</th>
+        <th style="width:5%">Descrição</th>
+        <th style="width:5%">Produto</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body">
+      @for (venda of vendas; track venda){
+        <tr>
+          <td>{{ venda.quantity }}</td>
+          <td>{{ venda.description }}</td>
+          <td>{{ venda.product }}</td>
+        </tr>
+      }
+    </ng-template>
+  </p-table>
+</p-card>
+

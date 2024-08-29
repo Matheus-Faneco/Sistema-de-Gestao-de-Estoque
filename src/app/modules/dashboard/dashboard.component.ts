@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartData, ChartOptions } from 'chart.js';
+import {Marca} from "../../models/marca";
 
 
 @Component({
@@ -8,8 +9,9 @@ import { ChartData, ChartOptions } from 'chart.js';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit {
-  dados: any;
-  configuracaoGrafico: any;
+  data: any;
+
+  options: any;
 
   ngOnInit() {
     const documentStyle = getComputedStyle(document.documentElement);
@@ -17,23 +19,29 @@ export class DashboardComponent implements OnInit {
     const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
     const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
 
-
-
-    this.dados = {
-      labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+    this.data = {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
       datasets: [
         {
-          label: 'Vendas',
-          data: [540, 325, 702, 620], //dados de exemplo
-          backgroundColor: ['rgba(255, 159, 64, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)'],
-          borderColor: ['rgb(255, 159, 64)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)'],
-          borderWidth: 1
+          label: 'First Dataset',
+          data: [65, 59, 80, 81, 56, 55, 40],
+          fill: false,
+          borderColor: documentStyle.getPropertyValue('--blue-500'),
+          tension: 0.4
+        },
+        {
+          label: 'Second Dataset',
+          data: [28, 48, 40, 19, 86, 27, 90],
+          fill: false,
+          borderColor: documentStyle.getPropertyValue('--pink-500'),
+          tension: 0.4
         }
       ]
     };
 
-    //Configuração dos gráficos
-    this.configuracaoGrafico = {
+    this.options = {
+      maintainAspectRatio: false,
+      aspectRatio: 0.6,
       plugins: {
         legend: {
           labels: {
@@ -42,8 +50,7 @@ export class DashboardComponent implements OnInit {
         }
       },
       scales: {
-        y: {
-          beginAtZero: true,
+        x: {
           ticks: {
             color: textColorSecondary
           },
@@ -52,7 +59,7 @@ export class DashboardComponent implements OnInit {
             drawBorder: false
           }
         },
-        x: {
+        y: {
           ticks: {
             color: textColorSecondary
           },
@@ -64,4 +71,5 @@ export class DashboardComponent implements OnInit {
       }
     };
   }
+
 }
