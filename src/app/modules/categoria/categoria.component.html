@@ -1,5 +1,4 @@
-<!--Cadastro de categorias-->
-
+<!-- Cadastro de categorias -->
 <p-card header="Adicionar categoria" styleClass="m-2 text-indigo-800">
   <div class="p-fluid p-formgrid p-grid">
     <div class="p-field p-col-12">
@@ -29,8 +28,7 @@
   </div>
 </p-card>
 
-<!--Listagem-->
-
+<!-- Listagem de categorias -->
 <p-card header="Listagem de categorias" styleClass="m-2 text-indigo-800">
   <p-table
     [value]="categorias"
@@ -40,17 +38,15 @@
   >
     <ng-template pTemplate="header">
       <tr>
-        <th style="width:5%">Categoria</th>
-        <th style="width:5%">Descrição</th>
+        <th>Categoria</th>
+        <th>Descrição</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body">
-      @for (c of categorias; track c){
-        <tr>
-          <td>{{ c.name }}</td>
-          <td>{{ c.description }}</td>
-        </tr>
-      }
+    <ng-template pTemplate="body" let-c>
+      <tr>
+        <td>{{ c.name }}</td>
+        <td>{{ c.description }}</td>
+      </tr>
     </ng-template>
   </p-table>
 </p-card>
