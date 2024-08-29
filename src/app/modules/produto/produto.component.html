@@ -1,90 +1,94 @@
-<form (ngSubmit)="addProduto()">
-  <mat-form-field appearance="fill">
-    <mat-label>Título</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.title" name="title" required>
-  </mat-form-field>
+<form>
+    <mat-form-field appearance="fill">
+        <mat-label>Título</mat-label>
+        <input matInput [(ngModel)]="produtoSelecionado.title" name="title" required>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Descrição</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.description" name="description" required>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Descrição</mat-label>
+        <input matInput [(ngModel)]="produtoSelecionado.description" name="description" required>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Categoria</mat-label>
-    <mat-select [(ngModel)]="produtoSelecionado.category" name="category" required>
-      <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
-        {{ categoria.name }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Categoria</mat-label>
+        <mat-select [(ngModel)]="produtoSelecionado.category" name="category" required>
+            <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
+                {{ categoria.name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Marca</mat-label>
-    <mat-select [(ngModel)]="produtoSelecionado.brand" name="brand" required>
-      <mat-option *ngFor="let marca of marcas" [value]="marca.id">
-        {{ marca.name }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Marca</mat-label>
+        <mat-select [(ngModel)]="produtoSelecionado.brand" name="brand" required>
+            <mat-option *ngFor="let marca of marcas" [value]="marca.id">
+                {{ marca.name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Número de série</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.serie_number" name="serie_number" required>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Número de série</mat-label>
+        <input matInput [(ngModel)]="produtoSelecionado.serie_number" name="serie_number" required>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Preço de custo</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.cost_price" name="cost_price" required>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Preço de custo</mat-label>
+        <input matInput [(ngModel)]="produtoSelecionado.cost_price" name="cost_price" required>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Preço de venda</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.selling_price" name="selling_price" required>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Preço de venda</mat-label>
+        <input matInput [(ngModel)]="produtoSelecionado.selling_price" name="selling_price" required>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Quantidade</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.quantity" name="quantity" required>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Quantidade</mat-label>
+        <input matInput [(ngModel)]="produtoSelecionado.quantity" name="quantity" required>
+    </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit" (click)="addProduto()">Adicionar Produto</button>
+    <button mat-raised-button color="primary" type="submit" (click)="addProduto()">Adicionar Produto</button>
+
 </form>
 
-
-<!--Listagem-->
-
+<!-- Listagem de Produtos -->
 <p-card header="Listagem de produtos" styleClass="m-2 text-indigo-800">
-  <p-table
-    [value]="produtos"
-    [paginator]="true"
-    [rows]="1"
+    <p-table
+            [value]="produtos"
+            [paginator]="true"
+            [rows]="1"
     [tableStyle]="{ 'min-width': '15rem' }"
-  >
+    >
     <ng-template pTemplate="header">
-      <tr>
-        <th style="width:5%">Marca</th>
-        <th style="width:5%">Categoria</th>
-        <th style="width:5%">Título</th>
-        <th style="width:5%">Descrição</th>
-        <th style="width:5%">Numero de série</th>
-        <th style="width:5%">Preço de custo (R$)</th>
-        <th style="width:5%">Preço de venda (R$)</th>
-        <th style="width:5%">Quantidade</th>
-      </tr>
+        <tr>
+            <th>Título</th>
+            <th>Marca</th>
+            <th>Categoria</th>
+            <th>Descrição</th>
+            <th>Número de série</th>
+            <th>Preço de custo (R$)</th>
+            <th>Preço de venda (R$)</th>
+            <th>Quantidade</th>
+            <th>Ações</th> <!-- Coluna para ações -->
+        </tr>
     </ng-template>
     <ng-template pTemplate="body">
-      @for (produto of produtos; track produto){
-        <tr>
-          <td>{{ produto.brand }}</td>
-          <td>{{ produto.category }}</td>
-          <td>{{ produto.title }}</td>
-          <td>{{ produto.description }}</td>
-          <td>{{ produto.serie_number }}</td>
-          <td>{{ produto.cost_price }}</td>
-          <td>{{ produto.selling_price }}</td>
-          <td>{{ produto.quantity }}</td>
+        <tr *ngFor="let produto of produtos">
+            <td>{{ produto.title }}</td>
+            <td>{{ produto.brand_name }}</td>
+            <td>{{ produto.category_title }}</td>
+            <td>{{ produto.description }}</td>
+            <td>{{ produto.serie_number }}</td>
+            <td>{{ produto.cost_price }}</td>
+            <td>{{ produto.selling_price }}</td>
+            <td>{{ produto.quantity }}</td>
+            <td>
+                <!-- Botão de Exclusão -->
+                <button mat-icon-button color="warn" (click)="deleteProduto(produto.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
         </tr>
-      }
     </ng-template>
-  </p-table>
+    </p-table>
 </p-card>

@@ -37,6 +37,9 @@ import { VendaComponent } from './modules/venda/venda.component';
 import {DropdownModule} from "primeng/dropdown";
 import {PaginatorModule} from "primeng/paginator";
 import { HomeComponent } from './modules/home/home.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatIcon} from "@angular/material/icon";
 
 
 @NgModule({
@@ -52,6 +55,7 @@ import { HomeComponent } from './modules/home/home.component';
     EntradaComponent,
     VendaComponent,
     HomeComponent,
+    ConfirmDialogComponent,
 
   ],
   imports: [
@@ -81,8 +85,10 @@ import { HomeComponent } from './modules/home/home.component';
     TableModule,
     DropdownModule,
     PaginatorModule,
+    MatDialogModule,
+    MatIcon,
   ],
   providers: [ApiService, provideAnimationsAsync()],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

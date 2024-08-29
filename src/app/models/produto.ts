@@ -8,6 +8,8 @@ export class Produto {
   cost_price: number;
   selling_price: number;
   quantity: number;
+  brand_name: string;
+  category_title:string;
 }
 
 

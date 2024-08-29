@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Produto } from '../../models/produto';
+import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../../service/api.service';
-import {Marca} from "../../models/marca";
-import {Categoria} from "../../models/categorias";
-
+import { Marca } from '../../models/marca';
+import { Categoria } from '../../models/categorias';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-produto',
@@ -12,11 +14,12 @@ import {Categoria} from "../../models/categorias";
 })
 export class ProdutoComponent implements OnInit {
   produtos: Produto[] = [];
-  produtoSelecionado: Produto = new Produto();  // Corrigido: Tipo alterado para Produto
+  produtoSelecionado: Produto = new Produto();
   marcas: Marca[] = [];
   categorias: Categoria[] = [];
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private dialog: MatDialog, private http: HttpClient) {
+  }
 
   ngOnInit() {
     this.getApi();
@@ -71,5 +74,24 @@ export class ProdutoComponent implements OnInit {
         console.log('Erro ao adicionar produto:', error);
       }
     );
+  }
+
+  deleteProduto(id: number): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '250px',
+      data: { message: 'Você tem certeza que deseja excluir este produto?' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.api.deleteProduto(id).subscribe(
+          response => {
+            console.log('Dados deletados', response);
+            this.produtos = this.produtos.filter(produto => produto.id !== id); // Remove o produto da lista local
+          },
+          error => console.error('Erro ao deletar dados', error)
+        );
+      }
+    });
   }
 }

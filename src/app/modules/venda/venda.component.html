@@ -26,8 +26,8 @@
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Produto</mat-label>
-        <mat-select [(ngModel)]="novaVenda.product" name="venda-produto" required>
-          <mat-option *ngFor="let produto of produtos" [value]="produto.title">
+        <mat-select [(ngModel)]="novaVenda.product" name="venda-produto" required><!-- mudei aqui -->
+          <mat-option *ngFor="let produto of produtos" [value]="produto.id">
             {{ produto.title }}
           </mat-option>
         </mat-select>
@@ -56,7 +56,7 @@
   >
     <ng-template pTemplate="header">
       <tr>
-        <th style="width:5%">Marca</th>
+        <th style="width:5%">Quantidade</th>
         <th style="width:5%">Descrição</th>
         <th style="width:5%">Produto</th>
       </tr>
@@ -66,7 +66,7 @@
         <tr>
           <td>{{ venda.quantity }}</td>
           <td>{{ venda.description }}</td>
-          <td>{{ venda.product }}</td>
+          <td>{{ venda.product_title }}</td>
         </tr>
       }
     </ng-template>
