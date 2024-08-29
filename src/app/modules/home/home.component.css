@@ -1,26 +1,23 @@
 .grid {
   background-image: url("../../../assets/logo.png") !important;
-  background-size: 60%;
   background-position: center;
   background-repeat: no-repeat;
-  height: 90vh;
-  animation: zoomIn 2s ease-in-out;
+  height: 90%;
+  animation: fade-in 2s ease-in-out;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1400px) {
   .grid {
     background-position: top;
   }
 }
 
-@keyframes zoomIn {
-  from {
-    transform: scale(0.8);
+/*Animação*/
+@keyframes fade-in {
+  0% {
     opacity: 0;
   }
-  to {
-    transform: scale(1);
+  100% {
     opacity: 1;
   }
 }
-
