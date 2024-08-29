@@ -36,6 +36,7 @@ import { EntradaComponent } from './modules/entrada/entrada.component';
 import { VendaComponent } from './modules/venda/venda.component';
 import {DropdownModule} from "primeng/dropdown";
 import {PaginatorModule} from "primeng/paginator";
+import { HomeComponent } from './modules/home/home.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import {PaginatorModule} from "primeng/paginator";
     FornecedorComponent,
     EntradaComponent,
     VendaComponent,
+    HomeComponent,
 
   ],
   imports: [

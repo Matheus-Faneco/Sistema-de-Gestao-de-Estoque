@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../service/api.service";
 import { Venda } from '../../models/venda';
+import {Produto} from "../../models/produto";
 
 @Component({
   selector: 'app-venda',
@@ -9,12 +10,14 @@ import { Venda } from '../../models/venda';
 })
 export class VendaComponent implements OnInit {
   vendas: Venda[] = [];
+  produtos: Produto[] = []
   novaVenda: Venda = new Venda();
 
   constructor(private api: ApiService) { }
 
   ngOnInit() {
     this.getVenda();
+    this.getProduto();
   }
 
   getVenda() {
@@ -41,4 +44,17 @@ export class VendaComponent implements OnInit {
         }
     );
   }
+
+  getProduto() {
+    this.api.getProdutos().subscribe(
+      (response: Produto[]) => {
+        this.produtos = response;
+        console.log('Array produtos:', this.produtos);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
 }

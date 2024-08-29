@@ -1,55 +1,56 @@
-<form (ngSubmit)="addProduto()">
-  <mat-form-field appearance="fill">
-    <mat-label>Título</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.title" name="title" required>
-  </mat-form-field>
+<p-card header="Adicionar produto" styleClass="m-2 text-indigo-800">
+  <form (ngSubmit)="addProduto()">
+    <mat-form-field appearance="fill">
+      <mat-label>Título</mat-label>
+      <input matInput [(ngModel)]="produtoSelecionado.title" name="title" required>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Descrição</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.description" name="description" required>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Descrição</mat-label>
+      <input matInput [(ngModel)]="produtoSelecionado.description" name="description" required>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Categoria</mat-label>
-    <mat-select [(ngModel)]="produtoSelecionado.category" name="category" required>
-      <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
-        {{ categoria.name }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Categoria</mat-label>
+      <mat-select [(ngModel)]="produtoSelecionado.category" name="category" required>
+        <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
+          {{ categoria.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Marca</mat-label>
-    <mat-select [(ngModel)]="produtoSelecionado.brand" name="brand" required>
-      <mat-option *ngFor="let marca of marcas" [value]="marca.id">
-        {{ marca.name }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Marca</mat-label>
+      <mat-select [(ngModel)]="produtoSelecionado.brand" name="brand" required>
+        <mat-option *ngFor="let marca of marcas" [value]="marca.id">
+          {{ marca.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Número de série</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.serie_number" name="serie_number" required>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Número de série</mat-label>
+      <input matInput [(ngModel)]="produtoSelecionado.serie_number" name="serie_number" required>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Preço de custo</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.cost_price" name="cost_price" required>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Preço de custo</mat-label>
+      <input matInput [(ngModel)]="produtoSelecionado.cost_price" name="cost_price" required>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Preço de venda</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.selling_price" name="selling_price" required>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Preço de venda</mat-label>
+      <input matInput [(ngModel)]="produtoSelecionado.selling_price" name="selling_price" required>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Quantidade</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.quantity" name="quantity" required>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Quantidade</mat-label>
+      <input matInput [(ngModel)]="produtoSelecionado.quantity" name="quantity" required>
+    </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit" (click)="addProduto()">Adicionar Produto</button>
-</form>
-
+    <p-button type="submit" (click)="addProduto()">Adicionar Produto</p-button>
+  </form>
+</p-card>
 
 <!--Listagem-->
 

@@ -7,8 +7,11 @@ import {MarcasComponent} from "./modules/marcas/marcas.component";
 import {FornecedorComponent} from "./modules/fornecedor/fornecedor.component";
 import {EntradaComponent} from "./modules/entrada/entrada.component";
 import {VendaComponent} from "./modules/venda/venda.component";
+import {HomeComponent} from "./modules/home/home.component";
+
 
 const routes: Routes = [
+  {path: "", component: HomeComponent},
   {path: "dashboard", component: DashboardComponent},
   {path: "produtos", component: ProdutoComponent},
   {path: "categorias", component: CategoriaComponent},

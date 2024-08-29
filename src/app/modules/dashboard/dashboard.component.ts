@@ -20,17 +20,17 @@ export class DashboardComponent implements OnInit {
     const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
 
     this.data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho'],
       datasets: [
         {
-          label: 'First Dataset',
+          label: 'Entrada de produtos',
           data: [65, 59, 80, 81, 56, 55, 40],
           fill: false,
           borderColor: documentStyle.getPropertyValue('--blue-500'),
           tension: 0.4
         },
         {
-          label: 'Second Dataset',
+          label: 'Venda de produtos',
           data: [28, 48, 40, 19, 86, 27, 90],
           fill: false,
           borderColor: documentStyle.getPropertyValue('--pink-500'),
@@ -41,7 +41,7 @@ export class DashboardComponent implements OnInit {
 
     this.options = {
       maintainAspectRatio: false,
-      aspectRatio: 0.6,
+      aspectRatio: 1.0,
       plugins: {
         legend: {
           labels: {

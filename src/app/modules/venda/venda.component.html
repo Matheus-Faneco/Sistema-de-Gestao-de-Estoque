@@ -25,10 +25,10 @@
 
     <div>
       <mat-form-field appearance="fill">
-        <mat-label>Marca</mat-label>
+        <mat-label>Produto</mat-label>
         <mat-select [(ngModel)]="novaVenda.product" name="venda-produto" required>
-          <mat-option *ngFor="let venda of vendas" [value]="venda.product">
-            {{ venda.product }}
+          <mat-option *ngFor="let produto of produtos" [value]="produto.title">
+            {{ produto.title }}
           </mat-option>
         </mat-select>
       </mat-form-field>
