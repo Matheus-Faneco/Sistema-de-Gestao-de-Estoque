@@ -1,4 +1,4 @@
-<form (ngSubmit)="addProduto()">
+<form>
   <mat-form-field appearance="fill">
     <mat-label>Título</mat-label>
     <input matInput [(ngModel)]="produtoSelecionado.title" name="title" required>
@@ -47,7 +47,7 @@
     <input matInput [(ngModel)]="produtoSelecionado.quantity" name="quantity" required>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit" (click)="addProduto()">Adicionar Produto</button>
+  <button mat-raised-button color="primary" (click)="addProduto()">Adicionar Produto</button>
 </form>
 
 

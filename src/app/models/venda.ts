@@ -4,5 +4,5 @@ export class Venda {
   description:string;
   created_at: string;
   updated_at:string;
-  product: number;
+  product: string;
 }

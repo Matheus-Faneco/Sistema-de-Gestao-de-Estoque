@@ -41,16 +41,17 @@ export class EntradaComponent implements OnInit {
 
   addEntrada() {
     this.api.postEntrada(this.novaEntrada).subscribe(
-        (response: Entrada) => {
-          this.entradas.push(response);
-          console.log('Marca adicionada com sucesso!');
-          this.novaEntrada = new Entrada();
-        },
-        (error) => {
-          console.log(error);
-        }
+      (response: Entrada) => {
+        this.entradas.push(response); // Assuming the API returns only the new entry
+        this.novaEntrada = new Entrada(); // Clear the form for a new entry
+      },
+      (error) => {
+        console.log(error);
+      }
     );
   }
+
+
 
   getFornecedor() {
     this.api.getFornecedor().subscribe(

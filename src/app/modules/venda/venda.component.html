@@ -27,7 +27,7 @@
       <mat-form-field appearance="fill">
         <mat-label>Produto</mat-label>
         <mat-select [(ngModel)]="novaVenda.product" name="venda-produto" required>
-          <mat-option *ngFor="let produto of produtos" [value]="produto.title">
+          <mat-option *ngFor="let produto of produtos" [value]="produto.id">
             {{ produto.title }}
           </mat-option>
         </mat-select>
@@ -66,7 +66,7 @@
         <tr>
           <td>{{ venda.quantity }}</td>
           <td>{{ venda.description }}</td>
-          <td>{{ venda.product }}</td>
+          <td>{{ venda.product}}</td>
         </tr>
       }
     </ng-template>
