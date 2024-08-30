@@ -3,6 +3,10 @@ import { Produto } from '../../models/produto';
 import { ApiService } from '../../service/api.service';
 import {Marca} from "../../models/marca";
 import {Categoria} from "../../models/categorias";
+import {DialogConfirmComponent} from "../../dialog-confirm/dialog-confirm.component";
+import {MatDialog} from "@angular/material/dialog";
+import {HttpClient} from "@angular/common/http";
+
 
 
 @Component({
@@ -13,11 +17,11 @@ import {Categoria} from "../../models/categorias";
 })
 export class ProdutoComponent implements OnInit {
   produtos: Produto[] = [];
-  produtoSelecionado: Produto = new Produto();  // Corrigido: Tipo alterado para Produto
+  produtoSelecionado: Produto = new Produto();
   marcas: Marca[] = [];
   categorias: Categoria[] = [];
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private dialog: MatDialog, private http: HttpClient) { }
 
   ngOnInit() {
     this.getApi();
@@ -72,5 +76,24 @@ export class ProdutoComponent implements OnInit {
         console.log('Erro ao adicionar produto:', error);
       }
     );
+  }
+
+  deleteProduto(id: number): void {
+    const dialogRef = this.dialog.open(DialogConfirmComponent, {
+      width: '250px',
+      data: { message: 'Você tem certeza que deseja excluir este produto?' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.api.deleteProduto(id).subscribe(
+          response => {
+            console.log('Dados deletados', response);
+            this.produtos = this.produtos.filter(produto => produto.id !== id);
+          },
+          error => console.error('Erro ao deletar dados', error)
+        );
+      }
+    });
   }
 }

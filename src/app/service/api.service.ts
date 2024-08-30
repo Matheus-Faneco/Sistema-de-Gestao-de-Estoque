@@ -30,6 +30,10 @@ export class ApiService {
     return this.http.post<Produto>(this.apiUrlProducts, produto);
   }
 
+  public deleteProduto(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrlProducts}${id}/`);
+  }
+
   public getMarcas(): Observable<Marca[]> {
     return this.http.get<Marca[]>(this.apiUrlBrands);
   }

@@ -37,6 +37,8 @@ import { VendaComponent } from './modules/venda/venda.component';
 import {DropdownModule} from "primeng/dropdown";
 import {PaginatorModule} from "primeng/paginator";
 import { HomeComponent } from './modules/home/home.component';
+import {MatIcon} from "@angular/material/icon";
+import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.component';
 
 
 @NgModule({
@@ -52,36 +54,38 @@ import { HomeComponent } from './modules/home/home.component';
     EntradaComponent,
     VendaComponent,
     HomeComponent,
+    DialogConfirmComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CardModule,
-    ChartModule,
-    HttpClientModule,
-    ToolbarModule,
-    ButtonDirective,
-    Button,
-    ChipsModule,
-    TabMenuModule,
-    InputGroupModule,
-    InputGroupAddonModule,
-    FormsModule,
-    MultiSelectModule,
-    ListboxModule,
-    InputTextareaModule,
-    CommonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSelect,
-    MatOption,
-    TableModule,
-    DropdownModule,
-    PaginatorModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        CardModule,
+        ChartModule,
+        HttpClientModule,
+        ToolbarModule,
+        ButtonDirective,
+        Button,
+        ChipsModule,
+        TabMenuModule,
+        InputGroupModule,
+        InputGroupAddonModule,
+        FormsModule,
+        MultiSelectModule,
+        ListboxModule,
+        InputTextareaModule,
+        CommonModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatSelect,
+        MatOption,
+        TableModule,
+        DropdownModule,
+        PaginatorModule,
+        MatIcon,
+    ],
   providers: [ApiService, provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })

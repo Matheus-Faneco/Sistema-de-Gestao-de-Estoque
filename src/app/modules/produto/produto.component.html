@@ -129,6 +129,12 @@
           <td>{{ produto.serie_number }}</td>
           <td>{{ produto.cost_price }}</td>
           <td>{{ produto.selling_price }}</td>
+          <td>
+            <!-- Botão de Exclusão -->
+            <button mat-icon-button color="warn" (click)="deleteProduto(produto.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
         </tr>
       </ng-template>
     </p-table>
