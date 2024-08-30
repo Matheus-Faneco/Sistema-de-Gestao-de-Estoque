@@ -1,56 +1,109 @@
-<p-card header="Cadastro de produto"></p-card>
-
-<form>
-  <mat-form-field appearance="fill">
-    <mat-label>Título</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.title" name="title" required>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Descrição</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.description" name="description" required>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Categoria</mat-label>
-    <mat-select [(ngModel)]="produtoSelecionado.category" name="category" required>
-      <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
-        {{ categoria.name }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Marca</mat-label>
-    <mat-select [(ngModel)]="produtoSelecionado.brand" name="brand" required>
-      <mat-option *ngFor="let marca of marcas" [value]="marca.id">
-        {{ marca.name }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Número de série</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.serie_number" name="serie_number" required>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Preço de custo</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.cost_price" name="cost_price" required>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Preço de venda</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.selling_price" name="selling_price" required>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Quantidade</mat-label>
-    <input matInput [(ngModel)]="produtoSelecionado.quantity" name="quantity" required>
-  </mat-form-field>
-
-  <button mat-raised-button color="primary" (click)="addProduto()">Adicionar Produto</button>
-</form>
+<p-card header="Cadastro de produto" styleClass="m-2 text-indigo-800">
+  <div class="p-fluid p-formgrid p-grid">
+    <div class="p-field p-col-12">
+      <label for="title">Título</label>
+      <input
+        pInputText
+        id="title"
+        aria-describedby="titulo-produto"
+        [(ngModel)]="produtoSelecionado.title"
+        name="title"
+        required
+        class="p-inputtext p-component"
+      />
+    </div>
+    <div class="p-field p-col-12">
+      <label for="description">Descrição</label>
+      <input
+        pInputText
+        id="description"
+        aria-describedby="descricao-produto"
+        [(ngModel)]="produtoSelecionado.description"
+        name="description"
+        required
+        class="p-inputtext p-component"
+      />
+    </div>
+    <div class="p-field p-col-12">
+      <label for="category">Categoria</label>
+      <p-dropdown
+        id="category"
+        [options]="categorias"
+        [(ngModel)]="produtoSelecionado.category"
+        optionLabel="name"
+        optionValue="id"
+        placeholder="Selecione uma categoria"
+        name="category"
+        required
+      ></p-dropdown>
+    </div>
+    <div class="p-field p-col-12">
+      <label for="brand">Marca</label>
+      <p-dropdown
+        id="brand"
+        [options]="marcas"
+        [(ngModel)]="produtoSelecionado.brand"
+        optionLabel="name"
+        optionValue="id"
+        placeholder="Selecione uma marca"
+        name="brand"
+        required
+      ></p-dropdown>
+    </div>
+    <div class="p-field p-col-12">
+      <label for="serie_number">Número de série</label>
+      <input
+        pInputText
+        id="serie_number"
+        aria-describedby="serie-produto"
+        [(ngModel)]="produtoSelecionado.serie_number"
+        name="serie_number"
+        required
+        class="p-inputtext p-component"
+      />
+    </div>
+    <div class="p-field p-col-12">
+      <label for="cost_price">Preço de custo</label>
+      <p-inputNumber
+        id="cost_price"
+        aria-describedby="preco-custo"
+        [(ngModel)]="produtoSelecionado.cost_price"
+        name="cost_price"
+        required
+        class="p-inputnumber p-component"
+      />
+    </div>
+    <div class="p-field p-col-12">
+      <label for="selling_price">Preço de venda</label>
+      <p-inputNumber
+        id="selling_price"
+        aria-describedby="preco-venda"
+        [(ngModel)]="produtoSelecionado.selling_price"
+        name="selling_price"
+        required
+        class="p-inputtext p-component"
+      />
+    </div>
+    <div class="p-field p-col-12">
+      <label for="quantity">Quantidade</label>
+      <p-inputNumber
+        id="quantity"
+        aria-describedby="quantidade-produto"
+        [(ngModel)]="produtoSelecionado.quantity"
+        name="quantity"
+        required
+        class="p-inputtext p-component"
+      />
+    </div>
+    <div class="p-field p-col-12">
+      <p-button
+        label="Confirmar"
+        (click)="addProduto()"
+        styleClass="p-button"
+      ></p-button>
+    </div>
+  </div>
+</p-card>
 
 
 <!--Listagem-->
@@ -69,6 +122,7 @@
           <th>Quantidade</th>
         </tr>
       </ng-template>
+
       <ng-template pTemplate="body" let-produto>
         <tr>
           <td>{{ produto.brand }}</td>

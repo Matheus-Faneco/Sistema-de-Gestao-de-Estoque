@@ -13,7 +13,7 @@ export class ToolbarComponent implements OnInit {
   ngOnInit() {
     this.items = [
       { label: 'Dashboard', icon: 'pi-chart-line', routerLink: '/dashboard' },
-      { label: 'Produtos', icon: 'pi pi-list', routerLink: '/produtos'},
+      { label: 'Produtos', icon: 'pi-box', routerLink: '/produtos'},
       { label: 'Categorias', icon: 'pi pi-inbox', routerLink: '/categorias' },
       { label: 'Marcas', icon: 'pi pi-user', routerLink: '/marcas' },
       { label: 'Fornecedor', icon: 'pi pi-user', routerLink: '/fornecedor' },
