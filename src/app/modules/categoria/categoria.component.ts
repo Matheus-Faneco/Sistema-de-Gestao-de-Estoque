@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { Categoria } from '../../models/categorias';
 import { ApiService } from '../../service/api.service';
 
 @Component({
   selector: 'app-categoria',
   templateUrl: './categoria.component.html',
-  styleUrls: ['./categoria.component.css']
+  styleUrls: ['./categoria.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CategoriaComponent implements OnInit {
   categorias: Categoria[] = [];

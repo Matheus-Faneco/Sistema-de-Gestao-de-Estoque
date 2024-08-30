@@ -1,3 +1,5 @@
+<p-card header="Cadastro de produto"></p-card>
+
 <form>
   <mat-form-field appearance="fill">
     <mat-label>Título</mat-label>
@@ -54,26 +56,20 @@
 <!--Listagem-->
 
 <p-card header="Listagem de produtos" styleClass="m-2 text-indigo-800">
-  <p-table
-    [value]="produtos"
-    [paginator]="true"
-    [rows]="1"
-    [tableStyle]="{ 'min-width': '15rem' }"
-  >
-    <ng-template pTemplate="header">
-      <tr>
-        <th style="width:5%">Marca</th>
-        <th style="width:5%">Categoria</th>
-        <th style="width:5%">Título</th>
-        <th style="width:5%">Descrição</th>
-        <th style="width:5%">Numero de série</th>
-        <th style="width:5%">Preço de custo (R$)</th>
-        <th style="width:5%">Preço de venda (R$)</th>
-        <th style="width:5%">Quantidade</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body">
-      @for (produto of produtos; track produto){
+    <p-table [value]="produtos" [paginator]="true" [rows]="5">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Marca</th>
+          <th>Categoria</th>
+          <th>Título</th>
+          <th>Descrição</th>
+          <th>Número de série</th>
+          <th>Preço de custo (R$)</th>
+          <th>Preço de venda (R$)</th>
+          <th>Quantidade</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-produto>
         <tr>
           <td>{{ produto.brand }}</td>
           <td>{{ produto.category }}</td>
@@ -84,7 +80,7 @@
           <td>{{ produto.selling_price }}</td>
           <td>{{ produto.quantity }}</td>
         </tr>
-      }
-    </ng-template>
-  </p-table>
-</p-card>
+      </ng-template>
+    </p-table>
+  </p-card>
+

@@ -1,6 +1,6 @@
 export class Venda {
   id:number;
-  quantity:string;
+  quantity:number;
   description:string;
   created_at: string;
   updated_at:string;

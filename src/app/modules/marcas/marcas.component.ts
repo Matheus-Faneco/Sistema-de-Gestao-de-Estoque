@@ -1,11 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ApiService} from "../../service/api.service";
 import {Marca} from "../../models/marca";
 
 @Component({
   selector: 'app-marcas',
   templateUrl: './marcas.component.html',
-  styleUrl: './marcas.component.css'
+  styleUrl: './marcas.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class MarcasComponent implements OnInit {
   marcas: Marca[] = [];

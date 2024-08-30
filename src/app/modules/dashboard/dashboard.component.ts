@@ -7,7 +7,7 @@ import { ApiService } from '../../service/api.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'] // Corrigido de 'styleUrl' para 'styleUrls'
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
   dataEntrada: Entrada[] = [];
@@ -21,6 +21,8 @@ export class DashboardComponent implements OnInit {
     this.getEntrada();
     this.getVendas()
 
+
+    // Dashboard
     const documentStyle = getComputedStyle(document.documentElement);
     const textColor = documentStyle.getPropertyValue('--text-color');
     const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
@@ -61,18 +63,18 @@ export class DashboardComponent implements OnInit {
   atualizarGrafico() {
     const documentStyle = getComputedStyle(document.documentElement);
     this.data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho'],
       datasets: [
         {
-          label: 'Entrada Dataset',
+          label: 'Entrada de produtos',
           data: this.dataEntrada.map(entry => entry.quantity),
           fill: false,
           borderColor: documentStyle.getPropertyValue('--blue-500'),
           tension: 0.4
         },
         {
-          label: 'Second Dataset',
-          data: [1,2,3],
+          label: 'Venda de Produtos',
+          data: this.dataVenda.map(entry => entry.quantity),
           fill: false,
           borderColor: documentStyle.getPropertyValue('--pink-500'),
           tension: 0.4
@@ -86,7 +88,6 @@ export class DashboardComponent implements OnInit {
       (response: Entrada[]) => {
         this.dataEntrada = response;
         this.atualizarGrafico();
-        console.log('Array entradas:', this.dataEntrada);
       },
       (error) => {
         console.log(error);
@@ -99,7 +100,6 @@ export class DashboardComponent implements OnInit {
       (response: Venda[]) => {
         this.dataVenda = response;
         this.atualizarGrafico();
-        console.log('Array vendas:', this.dataVenda);
       },
       (error) => {
         console.log(error);

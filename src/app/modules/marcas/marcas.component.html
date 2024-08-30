@@ -1,6 +1,6 @@
 <!--Cadastro de produtos-->
 
-<p-card header="Adicionar marca de produto" styleClass="m-2 text-indigo-800">
+<p-card header="Cadastro de marcas" styleClass="m-2 text-indigo-800">
   <div class="p-fluid p-formgrid p-grid">
     <div class="p-field p-col-12">
       <label for="marca">Nome</label>
@@ -27,7 +27,7 @@
       <p-button
         label="Confirmar"
         (click)="addMarca()"
-        styleClass="p-button-sm"
+        styleClass="p-button"
       ></p-button>
     </div>
   </div>
@@ -39,22 +39,19 @@
   <p-table
     [value]="marcas"
     [paginator]="true"
-    [rows]="1"
-    [tableStyle]="{ 'min-width': '5rem' }"
+    [rows]="5"
   >
     <ng-template pTemplate="header">
       <tr>
-        <th style="width:5%">Marca</th>
-        <th style="width:5%">Descrição</th>
+        <th>Marca</th>
+        <th>Descrição</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body">
-      @for (m of marcas; track m){
-        <tr>
-          <td>{{ m.name }}</td>
-          <td>{{ m.description }}</td>
-        </tr>
-      }
+    <ng-template pTemplate="body" let-marca>
+      <tr>
+        <td>{{ marca.name }}</td>
+        <td>{{ marca.description }}</td>
+      </tr>
     </ng-template>
   </p-table>
 </p-card>

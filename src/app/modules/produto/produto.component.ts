@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { Produto } from '../../models/produto';
 import { ApiService } from '../../service/api.service';
 import {Marca} from "../../models/marca";
@@ -8,7 +8,8 @@ import {Categoria} from "../../models/categorias";
 @Component({
   selector: 'app-produto',
   templateUrl: './produto.component.html',
-  styleUrls: ['./produto.component.css']
+  styleUrls: ['./produto.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ProdutoComponent implements OnInit {
   produtos: Produto[] = [];

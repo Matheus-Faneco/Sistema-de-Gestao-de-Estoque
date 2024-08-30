@@ -1,11 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ApiService} from "../../service/api.service";
 import {Fornecedor} from "../../models/fornecedor";
 
 @Component({
   selector: 'app-fornecedor',
   templateUrl: './fornecedor.component.html',
-  styleUrl: './fornecedor.component.css'
+  styleUrl: './fornecedor.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class FornecedorComponent implements OnInit {
   fornecedores: Fornecedor[] = [];
