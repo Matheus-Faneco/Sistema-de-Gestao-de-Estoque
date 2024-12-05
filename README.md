@@ -23,4 +23,4 @@ Este projeto é um sistema web completo para gestão de estoque, desenvolvido co
 * **Categorias, Marcas e Fornecedores:**
     * Cadastro e listagem de categorias, marcas e fornecedores, com a mesma lógica das funcionalidades de produtos.
 * **Entradas e Saídas:**
-    * Registro detalhado das entradas e saídas de produtos, com data, quantidade e observações.
+    * Registro detalhado das entradas e saídas de produtos, com fornecedor, quantidade e descrição sobre.
