@@ -1,5 +1,5 @@
 # Sistema de Gestão de Estoque - MostraTECH FPF Tech
-Demo da aplicação: https://cutt.ly/ZeXjUQcM **(Apenas Frontend)**
+Demo da aplicação: https://cutt.ly/QeXjJvYO **(Apenas Frontend)**
 
 ## Descrição
 
