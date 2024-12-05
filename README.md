@@ -9,7 +9,7 @@ Este projeto é um sistema web completo para gestão de estoque, desenvolvido co
 
 * **Frontend:** Angular
 
-* **Backend:** Django
+* **Backend:** Django (repositório: https://github.com/Lucas-Praia/Sistema-de-Gerenciamento-de-Estoque)
 
 * **Banco de dados:** PostgreSQL
 
